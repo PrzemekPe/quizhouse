@@ -3,6 +3,7 @@ package com.example.quizhouse.questions;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
@@ -14,6 +15,7 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
     public List<Question> findAll() {
-        return StreamSupport.stream(questionRepository.findAll)
+        return StreamSupport.stream(questionRepository.findAll().spliterator(),false)
+                .collect(Collectors.toList());
     }
 }
