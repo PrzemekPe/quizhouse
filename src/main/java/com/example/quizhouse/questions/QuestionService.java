@@ -15,7 +15,6 @@ public class QuestionService {
         this.questionRepository = questionRepository;
     }
     public List<Question> findAll() {
-        return StreamSupport.stream(questionRepository.findAll().spliterator(),false)
-                .collect(Collectors.toList());
+        return questionRepository.findAll();
     }
 }
