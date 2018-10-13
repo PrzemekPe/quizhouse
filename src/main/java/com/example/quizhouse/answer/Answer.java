@@ -10,11 +10,13 @@ import javax.persistence.*;
 @Data
 public class Answer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(columnDefinition = "TINYINT(1)")
     private Boolean correct;
     private  String userAnswer;
     private  Integer scale;
+
     @ManyToOne
     @JoinColumn(name = "QUESTION_ID")
     private Question question;

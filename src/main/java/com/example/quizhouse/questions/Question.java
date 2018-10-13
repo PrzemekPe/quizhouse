@@ -13,9 +13,13 @@ import java.util.Set;
 @Table(name = "QUESTIONS")
 @Data
 public class Question {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
     @ManyToMany(mappedBy = "questions")
     private Set<Survey> surveys = new HashSet<>();
 
